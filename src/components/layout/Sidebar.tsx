@@ -11,7 +11,7 @@ import {
   FileText,
   Settings,
   HelpCircle,
-  Video
+  Video,
 } from 'lucide-react';
 
 interface SidebarItemProps {
@@ -25,7 +25,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ to, icon, text }) => {
     <NavLink
       to={to}
       className={({ isActive }) =>
-        `flex items-center py-2.5 px-4 rounded-md transition-colors duration-200 ${
+        `flex items-center gap-3 py-2.5 px-4 rounded-md transition-colors duration-200 ${
           isActive
             ? 'bg-primary-50 text-primary-700'
             : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
@@ -33,7 +33,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ to, icon, text }) => {
       }
     >
       {icon}
-      <span className="ml-3">{text}</span>
+      <span>{text}</span>
     </NavLink>
   );
 };
@@ -76,6 +76,11 @@ export const Sidebar: React.FC = () => {
       text: 'Documents',
     },
     {
+      to: '/document-chamber',
+      icon: <FileText size={20} />,
+      text: 'Document Chamber',
+    },
+    {
       to: '/video-call',
       icon: <Video size={20} />,
       text: 'Video Call',
@@ -115,8 +120,13 @@ export const Sidebar: React.FC = () => {
       text: 'Video Call',
     },
     {
-      to: '/deals',
+      to: '/document-chamber',
       icon: <FileText size={20} />,
+      text: 'Document Chamber',
+    },
+    {
+      to: '/deals',
+      icon: <CircleDollarSign size={20} />,
       text: 'Deals',
     },
   ];
@@ -140,7 +150,7 @@ export const Sidebar: React.FC = () => {
   ];
 
   return (
-    <div className="hidden md:flex md:w-64 md:flex-col border-r border-gray-200 bg-white">
+    <div className="hidden md:flex md:w-64 md:flex-col bg-white border-r border-gray-200">
 
       <div className="flex-1 overflow-y-auto py-6">
 
